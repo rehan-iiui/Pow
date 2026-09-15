@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Presentation Studio Ultimate</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+  <!-- TOP BAR -->
+  <header class="topbar">
+
+    <div class="brand">
+      <div class="logo">P</div>
+      <div>
+        <h1>Presentation Studio</h1>
+        <span>Ultimate</span>
+      </div>
+    </div>
+
+    <div class="file-title">
+      <input id="presentationName" value="My Presentation">
+    </div>
+
+    <div class="top-actions">
+      <button id="undoBtn" title="Undo">↶</button>
+      <button id="redoBtn" title="Redo">↷</button>
+      <button id="saveBtn">💾 Save</button>
+      <button id="presentBtn">▶ Present</button>
+    </div>
+
+  </header>
+
+
+  <!-- TOOLBAR -->
+  <nav class="toolbar">
+
+    <div class="tool-group">
+
+      <button id="addSlideBtn" class="primary-tool">
+        ＋ New Slide
+      </button>
+
+      <button id="duplicateSlideBtn">
+        ⧉ Duplicate
+      </button>
+
+      <button id="deleteSlideBtn">
+        🗑 Delete
+      </button>
+
+    </div>
+
+
+    <div class="tool-group">
+
+      <button id="addTextBtn">
+        T Text
+      </button>
+
+      <button id="addImageBtn">
+        🖼 Image
+      </button>
+
+      <button id="addShapeBtn">
+        ◯ Shape
+      </button>
+
+      <button id="addTableBtn">
+        ▦ Table
+      </button>
+
+    </div>
+
+
+    <div class="tool-group">
+
+      <button id="backgroundBtn">
+        🎨 Background
+      </button>
+
+      <button id="themeBtn">
+        ✨ Themes
+      </button>
+
+    </div>
+
+
+    <div class="tool-group zoom-tools">
+
+      <button id="zoomOutBtn">−</button>
+
+      <span id="zoomValue">100%</span>
+
+      <button id="zoomInBtn">＋</button>
+
+    </div>
+
+  </nav>
+
+
+  <!-- MAIN EDITOR -->
+  <main class="editor">
+
+    <!-- SLIDES -->
+    <aside class="slides-panel">
+
+      <div class="panel-heading">
+        <strong>Slides</strong>
+        <span id="slideCount">1</span>
+      </div>
+
+      <div id="slidesList" class="slides-list">
+      </div>
+
+      <button id="bottomAddSlide" class="bottom-add">
+        ＋ Add Slide
+      </button>
+
+    </aside>
+
+
+    <!-- CANVAS AREA -->
+    <section class="canvas-area">
+
+      <div class="canvas-top">
+
+        <span id="slideNumber">
+          Slide 1
+        </span>
+
+        <div>
+          <button id="fitBtn">
+            Fit
+          </button>
+
+          <button id="fullscreenEditorBtn">
+            ⛶
+          </button>
+        </div>
+
+      </div>
+
+
+      <div id="canvasViewport" class="canvas-viewport">
+
+        <div id="slideCanvas" class="slide-canvas">
+
+          <div
+            id="emptySlideMessage"
+            class="empty-slide-message">
+
+            <h2>Start creating</h2>
+
+            <p>
+              Add text, images, shapes and more.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PROPERTIES -->
+    <aside class="properties-panel">
+
+      <div class="panel-heading">
+        <strong>Properties</strong>
+      </div>
+
+
+      <!-- TEXT PROPERTIES -->
+
+      <section class="property-section">
+
+        <h3>Text</h3>
+
+        <label>
+          Font
+          <select id="fontFamily">
+            <option>Arial</option>
+            <option>Verdana</option>
+            <option>Georgia</option>
+            <option>Times New Roman</option>
+            <option>Courier New</option>
+            <option>Trebuchet MS</option>
+          </select>
+        </label>
+
+
+        <label>
+          Size
+          <input
+            id="fontSize"
+            type="number"
+            value="32"
+            min="8"
+            max="200">
+        </label>
+
+
+        <div class="property-row">
+
+          <button id="boldBtn">
+            <b>B</b>
+          </button>
+
+          <button id="italicBtn">
+            <i>I</i>
+          </button>
+
+          <button id="underlineBtn">
+            <u>U</u>
+          </button>
+
+          <button id="alignLeftBtn">
+            ≡
+          </button>
+
+          <button id="alignCenterBtn">
+            ☰
+          </button>
+
+          <button id="alignRightBtn">
+            ≡
+          </button>
+
+        </div>
+
+
+        <label>
+          Text Color
+          <input
+            id="textColor"
+            type="color"
+            value="#111111">
+        </label>
+
+      </section>
+
+
+      <!-- SLIDE PROPERTIES -->
+
+      <section class="property-section">
+
+        <h3>Slide</h3>
+
+        <label>
+          Background
+          <input
+            id="slideColor"
+            type="color"
+            value="#ffffff">
+        </label>
+
+      </section>
+
+
+      <!-- NOTES -->
+
+      <section class="property-section notes-section">
+
+        <h3>Speaker Notes</h3>
+
+        <textarea
+          id="speakerNotes"
+          placeholder="Add notes for this slide...">
+        </textarea>
+
+      </section>
+
+
+      <!-- QUICK INSERT -->
+
+      <section class="property-section">
+
+        <h3>Quick Insert</h3>
+
+        <div class="quick-grid">
+
+          <button id="quickTitleBtn">
+            Title
+          </button>
+
+          <button id="quickSubtitleBtn">
+            Subtitle
+          </button>
+
+          <button id="quickBulletBtn">
+            • List
+          </button>
+
+          <button id="quickQuoteBtn">
+            “ Quote
+          </button>
+
+        </div>
+
+      </section>
+
+    </aside>
+
+  </main>
+
+
+  <!-- BOTTOM BAR -->
+
+  <footer class="statusbar">
+
+    <div>
+      <span id="statusText">
+        Ready
+      </span>
+    </div>
+
+    <div class="status-right">
+
+      <span id="autosaveStatus">
+        Autosave on
+      </span>
+
+      <span>
+        •
+      </span>
+
+      <span id="wordCount">
+        0 words
+      </span>
+
+    </div>
+
+  </footer>
+
+</div>
+
+
+<!-- PRESENTATION MODE -->
+
+<div id="presentationMode" class="presentation-mode hidden">
+
+  <div id="presentationSlide" class="presentation-slide">
+  </div>
+
+  <div class="presentation-controls">
+
+    <button id="previousPresentationBtn">
+      ←
+    </button>
+
+    <span id="presentationCounter">
+      1 / 1
+    </span>
+
+    <button id="nextPresentationBtn">
+      →
+    </button>
+
+    <button id="exitPresentationBtn">
+      ✕
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- IMAGE UPLOAD -->
+
+<input
+  id="imageInput"
+  type="file"
+  accept="image/*"
+  hidden>
+
+
+<!-- SHAPE MENU -->
+
+<div id="shapeMenu" class="popup-menu hidden">
+
+  <button data-shape="rectangle">
+    ▭ Rectangle
+  </button>
+
+  <button data-shape="circle">
+    ○ Circle
+  </button>
+
+  <button data-shape="triangle">
+    △ Triangle
+  </button>
+
+  <button data-shape="star">
+    ★ Star
+  </button>
+
+  <button data-shape="arrow">
+    ➜ Arrow
+  </button>
+
+</div>
+
+
+<!-- BACKGROUND MENU -->
+
+<div id="backgroundMenu" class="popup-menu hidden">
+
+  <button data-bg="#ffffff">White</button>
+  <button data-bg="#111827">Dark</button>
+  <button data-bg="#eff6ff">Blue</button>
+  <button data-bg="#f0fdf4">Green</button>
+  <button data-bg="#fff7ed">Orange</button>
+  <button data-bg="#fdf2f8">Pink</button>
+
+  <button id="gradientBackgroundBtn">
+    🌈 Gradient
+  </button>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div id="toast" class="toast">
+  Saved
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
+```
